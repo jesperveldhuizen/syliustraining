@@ -8,6 +8,7 @@ use Sylius\Bundle\MoneyBundle\Form\Type\MoneyType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Type;
 
@@ -28,8 +29,22 @@ final class LimitFlatRateConfigurationType extends AbstractType
                     new NotBlank(['groups' => ['sylius']]),
                     new Type(['type' => 'integer', 'groups' => ['sylius']]),
                 ],
-                'currency' => 'USD',
+                'currency' => $options['currency'],
             ])
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver
+            ->setDefaults([
+                'data_class' => null,
+            ])
+            ->setRequired('currency')
+            ->setAllowedTypes('currency', 'string')
         ;
     }
 
