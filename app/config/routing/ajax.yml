@@ -1,0 +1,22 @@
+app_admin_ajax_suppliers_by_phrase:
+    path: /search
+    methods: [GET]
+    defaults:
+        _controller: app.controller.supplier:indexAction
+        _sylius:
+            permission: true
+            repository:
+                method: findByPhrase
+                arguments:
+                    phrase: $phrase
+
+app_admin_ajax_suppliers_by_codes:
+    path: /
+    methods: [GET]
+    defaults:
+        _controller: app.controller.supplier:indexAction
+        _sylius:
+            permission: true
+            repository:
+                method: findByCode
+                arguments: [$code]
