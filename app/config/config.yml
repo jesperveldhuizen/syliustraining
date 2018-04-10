@@ -8,6 +8,7 @@ imports:
     - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
 
     - { resource: "resource.yml" }
+    - { resource: "grid.yml" }
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
 
