@@ -2,5 +2,10 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+        <service id="app.shipping_calculator.limited_flat_rate" class="AppBundle\Shipping\Calculator\LimitFlatRateCalculator">
+            <tag name="sylius.shipping_calculator" calculator="limited_flat_rate"
+                 form-type="AppBundle\Form\Type\ChannelBasedLimitFlatRateConfigurationType"
+                 label="app.form.shipping_calculator.limited_flat_rate_configuration.label" />
+        </service>
     </services>
 </container>
