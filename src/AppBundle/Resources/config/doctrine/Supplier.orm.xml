@@ -9,6 +9,12 @@
 
         <field name="code" column="code" type="string" unique="true" />
         <field name="name" column="name" type="string" />
+
+        <one-to-many
+            field="products"
+            target-entity="AppBundle\Entity\Product"
+            mapped-by="supplier">
+        </one-to-many>
     </entity>
 
 </doctrine-mapping>
