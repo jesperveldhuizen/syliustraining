@@ -18,5 +18,15 @@
                 name="form.type_extension"
                 extended-type="Sylius\Bundle\ProductBundle\Form\Type\ProductType" />
         </service>
+
+        <service id="app.block.product_form_type" class="Sylius\Bundle\UiBundle\Block\BlockEventListener">
+            <argument>@App/_productForm.html.twig</argument>
+            <tag name="kernel.event_listener"
+                 event="sonata.block.event.sylius.admin.product.update.tab_details"
+                 method="onBlockEvent" />
+            <tag name="kernel.event_listener"
+                 event="sonata.block.event.sylius.admin.product.create.tab_details"
+                 method="onBlockEvent" />
+        </service>
     </services>
 </container>
