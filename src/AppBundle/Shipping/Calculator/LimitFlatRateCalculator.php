@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace AppBundle\Shipping\Calculator;
 
+use Sylius\Component\Shipping\Calculator\CalculatorInterface;
 use Sylius\Component\Shipping\Model\ShipmentInterface;
+use Webmozart\Assert\Assert;
 
 final class LimitFlatRateCalculator implements CalculatorInterface
 {
@@ -15,7 +17,7 @@ final class LimitFlatRateCalculator implements CalculatorInterface
     {
         Assert::isInstanceOf($subject, ShipmentInterface::class);
 
-        return (int) $configuration['amount'] * ceil($subject->getShippingUnitCount() / $configuration['limit']);
+        return (int) ($configuration['amount'] * ceil($subject->getShippingUnitCount() / $configuration['limit']));
     }
 
     /**
