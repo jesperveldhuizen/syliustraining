@@ -24,5 +24,13 @@ sylius_shop_default_locale:
     defaults:
         _controller: sylius.controller.shop.locale_switch:switchAction
 
+app_api:
+    resource: "routing/admin_api.yml"
+    prefix: /api
+
+app_admin:
+    resource: "routing/admin.yml"
+    prefix: /admin
+
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
