@@ -38,5 +38,16 @@
         <service id="app.promotion_checker.birthday_rule_checker" class="AppBundle\Promotion\Checker\BirthdayRuleChecker">
             <tag name="sylius.promotion_rule_checker" type="birthday_today" label="app.promotion_rule.birthday" form-type="Symfony\Component\Form\Extension\Core\Type\FormType" />
         </service>
+
+        <service id="app.fixture.supplier_fixture" class="AppBundle\Fixture\SupplierFixture">
+            <argument type="service" id="app.manager.supplier"/>
+            <argument type="service" id="app.fixture.supplier_example_factory"/>
+            <tag name="sylius_fixtures.fixture" />
+        </service>
+
+        <service id="app.fixture.supplier_example_factory" class="AppBundle\Fixture\SupplierExampleFactory">
+            <argument type="service" id="app.factory.supplier" />
+            <argument type="service" id="sm.factory" />
+        </service>
     </services>
 </container>

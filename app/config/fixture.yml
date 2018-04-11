@@ -1,0 +1,11 @@
+sylius_fixtures:
+  suites:
+    default:
+      fixtures:
+        supplier:
+          options:
+            custom:
+              audi:
+                name: Audi
+                code: AUDI_CODE
+            random: 20
