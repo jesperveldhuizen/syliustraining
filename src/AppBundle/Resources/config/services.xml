@@ -54,7 +54,7 @@
             <argument type="service" id="sylius.email_sender" />
             <tag
                 name="kernel.event_listener"
-                event="app.supplier.post_update"
+                event="app.supplier.post_trust"
                 method="sendTrustedEmail"
             />
         </service>

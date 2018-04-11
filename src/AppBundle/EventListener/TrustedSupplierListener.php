@@ -26,6 +26,6 @@ final class TrustedSupplierListener
         $supplier = $event->getSubject();
         Assert::isInstanceOf($supplier, Supplier::class);
 
-        $this->sender->send('trusted_email', [$supplier->getEmail()]);
+        $this->sender->send('trusted_email', [$supplier->getEmail()], ['supplier' => $supplier]);
     }
 }

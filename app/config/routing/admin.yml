@@ -13,6 +13,7 @@ app_admin_supplier_trust:
     defaults:
         _controller: app.controller.supplier:applyStateMachineTransitionAction
         _sylius:
+            event: trust
             permission: true
             state_machine:
                 graph: app_supplier
