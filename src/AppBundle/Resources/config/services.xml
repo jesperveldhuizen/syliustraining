@@ -47,6 +47,7 @@
 
         <service id="app.fixture.supplier_example_factory" class="AppBundle\Fixture\SupplierExampleFactory">
             <argument type="service" id="app.factory.supplier" />
+            <argument type="service" id="sm.factory" />
         </service>
     </services>
 </container>

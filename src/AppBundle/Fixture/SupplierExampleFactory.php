@@ -8,6 +8,7 @@ use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use SM\Factory\FactoryInterface as StateMachineFactoryInterface;
 
 final class SupplierExampleFactory extends AbstractExampleFactory
 {
@@ -20,11 +21,19 @@ final class SupplierExampleFactory extends AbstractExampleFactory
     /** @var \Faker\Generator */
     private $faker;
 
-    public function __construct(FactoryInterface $factory)
-    {
+    /**
+     * @var StateMachineFactoryInterface
+     */
+    private $stateMachineFactory;
+
+    public function __construct(
+        FactoryInterface $factory,
+        StateMachineFactoryInterface $stateMachineFactory
+    ) {
         $this->resolver = new OptionsResolver();
         $this->factory = $factory;
         $this->faker = \Faker\Factory::create();
+        $this->stateMachineFactory = $stateMachineFactory;
 
         $this->configureOptions($this->resolver);
     }
@@ -38,6 +47,10 @@ final class SupplierExampleFactory extends AbstractExampleFactory
 
         $supplier->setName($option['name']);
         $supplier->setCode($option['code']);
+
+        if ($this->faker->boolean(20)){
+            $this->stateMachineFactory->get($supplier, 'app_supplier')->apply('trust');
+        }
 
         return $supplier;
     }
