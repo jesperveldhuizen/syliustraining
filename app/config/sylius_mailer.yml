@@ -1,0 +1,5 @@
+sylius_mailer:
+  emails:
+    trusted_email:
+      subject: "You have been trusted"
+      template: "\\Emails\\trustedSupplier.html.twig"

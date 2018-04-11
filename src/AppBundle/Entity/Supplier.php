@@ -25,9 +25,22 @@ class Supplier implements ResourceInterface, CodeAwareInterface
     /** @var string */
     private $status = self::STATE_NEW;
 
+    /** @var string */
+    private $email;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
     }
 
     public function getStatus(): string

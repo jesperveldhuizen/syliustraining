@@ -49,5 +49,14 @@
             <argument type="service" id="app.factory.supplier" />
             <argument type="service" id="sm.factory" />
         </service>
+
+        <service id="app.event_listener.trusted_supplier_listener" class="AppBundle\EventListener\TrustedSupplierListener">
+            <argument type="service" id="sylius.email_sender" />
+            <tag
+                name="kernel.event_listener"
+                event="app.supplier.post_trust"
+                method="sendTrustedEmail"
+            />
+        </service>
     </services>
 </container>

@@ -11,6 +11,7 @@ imports:
     - { resource: "grid.yml" }
     - { resource: "state_machine.yml" }
     - { resource: "fixture.yml" }
+    - { resource: "sylius_mailer.yml" }
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
 

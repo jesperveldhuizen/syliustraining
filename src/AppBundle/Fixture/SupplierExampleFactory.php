@@ -47,6 +47,7 @@ final class SupplierExampleFactory extends AbstractExampleFactory
 
         $supplier->setName($option['name']);
         $supplier->setCode($option['code']);
+        $supplier->setEmail($this->faker->email);
 
         if ($this->faker->boolean(20)){
             $this->stateMachineFactory->get($supplier, 'app_supplier')->apply('trust');

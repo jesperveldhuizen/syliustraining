@@ -10,6 +10,7 @@
         <field name="code" column="code" type="string" unique="true" />
         <field name="name" column="name" type="string" />
         <field name="status" column="status" type="string" />
+        <field name="email" column="email" type="string" />
 
         <one-to-many
             field="products"
