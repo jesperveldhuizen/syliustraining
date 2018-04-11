@@ -28,5 +28,11 @@
                  event="sonata.block.event.sylius.admin.product.create.tab_details"
                  method="onBlockEvent" />
         </service>
+
+        <service id="app.form_type.supplier_type" class="AppBundle\Form\Type\SupplierType">
+            <argument>%app.model.supplier.class%</argument>
+            <argument type="collection"></argument>
+            <tag name="form.type" />
+        </service>
     </services>
 </container>

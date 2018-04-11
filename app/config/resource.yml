@@ -4,3 +4,4 @@ sylius_resource:
             classes:
                 model: AppBundle\Entity\Supplier
                 repository: AppBundle\Doctrine\ORM\SupplierRepository
+                form: AppBundle\Form\Type\SupplierType

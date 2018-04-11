@@ -9,6 +9,7 @@ imports:
 
     - { resource: "resource.yml" }
     - { resource: "grid.yml" }
+    - { resource: "state_machine.yml" }
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
 

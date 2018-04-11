@@ -4,10 +4,13 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-class Supplier implements ResourceInterface
+class Supplier implements ResourceInterface, CodeAwareInterface
 {
+    public const STATE_NEW = 'new';
+
     private $id;
 
     /** @var string */
@@ -19,9 +22,22 @@ class Supplier implements ResourceInterface
     /** @var Collection */
     private $products;
 
+    /** @var string */
+    private $status = self::STATE_NEW;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
     }
 
     public function getProducts(): Collection
@@ -44,7 +60,7 @@ class Supplier implements ResourceInterface
         return $this->name;
     }
 
-    public function setName(string $name): void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
@@ -54,7 +70,7 @@ class Supplier implements ResourceInterface
         return $this->code;
     }
 
-    public function setCode(string $code): void
+    public function setCode(?string $code): void
     {
         $this->code = $code;
     }
