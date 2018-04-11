@@ -26,7 +26,7 @@ sylius_grid:
                         type: delete
                     accept:
                         type: apply_transition
-                        label: sylius.ui.accept
+                        label: app.ui.trust
                         icon: checkmark
                         options:
                             link:
