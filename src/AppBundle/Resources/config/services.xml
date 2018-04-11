@@ -34,5 +34,9 @@
             <argument type="collection"></argument>
             <tag name="form.type" />
         </service>
+
+        <service id="app.promotion_checker.birthday_rule_checker" class="AppBundle\Promotion\Checker\BirthdayRuleChecker">
+            <tag name="sylius.promotion_rule_checker" type="birthday_today" label="app.promotion_rule.birthday" form-type="Symfony\Component\Form\Extension\Core\Type\FormType" />
+        </service>
     </services>
 </container>
