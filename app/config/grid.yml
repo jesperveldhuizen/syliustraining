@@ -12,6 +12,9 @@ sylius_grid:
                 name:
                     type: string
                     label: sylius.ui.name
+                status:
+                    type: string
+                    label: sylius.ui.status
             actions:
                 main:
                     create:
@@ -21,3 +24,15 @@ sylius_grid:
                         type: update
                     delete:
                         type: delete
+                    accept:
+                        type: apply_transition
+                        label: sylius.ui.accept
+                        icon: checkmark
+                        options:
+                            link:
+                                route: app_admin_supplier_trust
+                                parameters:
+                                    id: resource.id
+                            class: green
+                            transition: trust
+                            graph: app_supplier

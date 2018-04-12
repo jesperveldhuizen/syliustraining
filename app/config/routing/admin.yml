@@ -6,3 +6,16 @@ app_admin_supplier:
         grid: app_admin_supplier
         except: ['show']
     type: sylius.resource
+
+app_admin_supplier_trust:
+    path: /suppliers/{id}/trust
+    methods: [PUT]
+    defaults:
+        _controller: app.controller.supplier:applyStateMachineTransitionAction
+        _sylius:
+            permission: true
+            state_machine:
+                graph: app_supplier
+                transition: trust
+            redirect: referer
+            flash: app.review.trust
